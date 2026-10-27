@@ -79,6 +79,8 @@
     "allStates": "All states",
     "allCities": "All cities",
     "noResults": "No demo blood banks match these filters.",
+    "emptyTitle": "No blood banks found",
+    "clearFilters": "Clear filters",
     "demoBadge": "Demo",
     "hoursLabel": "Hours",
     "viewToggleLabel": "Choose how to view blood banks",
@@ -141,7 +143,10 @@
     "unavailableBadge": "Paused",
     "requestContact": "Request Contact",
     "requestContactFor": "Request contact with {{name}}",
-    "demoModeNotice": "Demo mode — contact requests aren't sent yet."
+    "demoModeNotice": "Demo mode — contact requests aren't sent yet.",
+    "emptyTitle": "No donors listed yet",
+    "emptyMessage": "Donors appear here once they opt in. In the meantime, you can look up blood banks near you.",
+    "emptyAction": "Browse blood banks"
   },
   "bloodCompatibility": {
     "title": "Blood Group Compatibility",

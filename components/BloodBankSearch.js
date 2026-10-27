@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { t } from "@/lib/i18n";
 import BloodBankCard from "@/components/BloodBankCard";
+import EmptyState from "@/components/EmptyState";
 
 // Leaflet touches `window`, so the map is only ever loaded in the browser.
 const BloodBankMap = dynamic(() => import("@/components/BloodBankMap"), {
@@ -33,6 +34,11 @@ export default function BloodBankSearch({ banks }) {
   const filtered = banks.filter(
     (b) => (!state || b.state === state) && (!city || b.city === city)
   );
+
+  const clearFilters = () => {
+    setState("");
+    setCity("");
+  };
 
   return (
     <div>
@@ -108,9 +114,14 @@ export default function BloodBankSearch({ banks }) {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="mt-6 text-sm text-gray-600">
-          {t("bloodBanks.noResults")}
-        </p>
+        <div className="mt-6">
+          <EmptyState
+            title={t("bloodBanks.emptyTitle")}
+            message={t("bloodBanks.noResults")}
+            actionLabel={t("bloodBanks.clearFilters")}
+            onAction={clearFilters}
+          />
+        </div>
       ) : view === "map" ? (
         <BloodBankMap banks={filtered} />
       ) : (
